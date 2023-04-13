@@ -9,6 +9,9 @@ let startQuiz = document.querySelector("#startQuiz");
 let rulesContainer = document.querySelector("#rulesContainer");
 let alertContainer = document.querySelector("#alertContainer");
 let submitContainer = document.querySelector("#submitContainer");
+let submitQuiz = document.querySelector("#submit");
+console.log(submitQuiz);
+
 let quizContainer = document.querySelector("#quizContainer");
 let answersContainer = document.querySelector("#answersContainer");
 let displayResult = document.querySelector("#displayResult");
@@ -81,7 +84,8 @@ const displayQuiz = (data) => {
 };
 
 // EventListener for quiz submit button
-document.querySelector("#submit").addEventlistener('click', () => {
+document.querySelector("#submit").addEventListener("click", () => {
+  
   if (answers.length < 6) {
     return;
   }
@@ -106,10 +110,12 @@ document.querySelector("#submit").addEventlistener('click', () => {
   if (totalMark === 60) {
     grade.status = "Excellent";
     grade.color = "text-green-600";
-  } else if (totalMark >= 40 && totalMark < 60) {
+  }
+   else if (totalMark >= 40 && totalMark < 60) {
     grade.status = "Good";
     grade.color = "text-orange-600";
-  } else {
+  } 
+  else {
     grade.status = "Poor";
     grade.color = "text-red-600";
   }
@@ -128,7 +134,8 @@ document.querySelector("#submit").addEventlistener('click', () => {
         },
       ])
     );
-  } else {
+  } 
+  else {
     localStorage.setItem(
       "results",
       JSON.stringify([
